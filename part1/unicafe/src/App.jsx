@@ -15,14 +15,28 @@ const Statistics = ({ good, neutral, bad }) => {
     const positive = all === 0 ? 0 : (good / all) * 100;
 
     return (
-        <div>
-            <p>good: {good}</p>
-            <p>neutral: {neutral}</p>
-            <p>bad: {bad}</p>
-            <p>all: {all}</p>
-            <p>average: {average.toFixed(2)}</p>
-            <p>positive: {positive.toFixed(1)}%</p>
-        </div>
+        <table>
+            <tbody>
+                <StatisticLine text="good" value={good} />
+                <StatisticLine text="neutral" value={neutral} />
+                <StatisticLine text="bad" value={bad} />
+                <StatisticLine text="all" value={all} />
+                <StatisticLine text="average" value={average.toFixed(2)} />
+                <StatisticLine
+                    text="positive"
+                    value={`${positive.toFixed(1)}%`}
+                />
+            </tbody>
+        </table>
+    );
+};
+
+const StatisticLine = ({ text, value }) => {
+    return (
+        <tr>
+            <td>{text}</td>
+            <td>{value}</td>
+        </tr>
     );
 };
 
