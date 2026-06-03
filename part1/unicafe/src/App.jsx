@@ -7,7 +7,6 @@ const Button = ({ onClick, text }) => {
 const Statistics = ({ good, neutral, bad }) => {
     const all = good + neutral + bad;
     const average = all === 0 ? 0 : (good - bad) / all;
-    // positive should be good / all * 100
     const positive = all === 0 ? 0 : (good / all) * 100;
 
     return (
